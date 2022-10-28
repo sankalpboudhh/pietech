@@ -8,7 +8,12 @@ const routes = require("./routes/routes");
 
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+// mongoose.connect(process.env.DATABASE_URL);
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  dbName: "pietech1",
+});
 mongoose.connection.on("error", (error) => console.log(error));
 mongoose.Promise = global.Promise;
 
